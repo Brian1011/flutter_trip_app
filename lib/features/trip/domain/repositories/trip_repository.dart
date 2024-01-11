@@ -1,7 +1,7 @@
 import '../entities/trip.dart';
 
 abstract class TripRepository {
-  Future<Trip> getTrips();
-  Future<void> addTrip({Trip trip});
-  Future<void> deleteTrip({int index});
+  Future<List<Trip>> getTrips();
+  Future<void> addTrip({required Trip trip});
+  Future<void> deleteTrip({required int index});
 }
