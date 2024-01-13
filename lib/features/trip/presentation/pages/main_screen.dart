@@ -7,8 +7,28 @@ class MainScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    _pageController.addListener(() {
+      _currentPage.value = _pageController.page!.round();
+    });
+
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: false,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: 100,
+        title: const Column(
+          children: [
+            Text(
+              "Hi Junior \nTraveling today?",
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            )
+          ],
+        ),
+      ),
       body: PageView(
         controller: _pageController,
         children: [
@@ -21,6 +41,7 @@ class MainScreen extends ConsumerWidget {
           valueListenable: _currentPage,
           builder: (context, pageIndex, child) {
             return BottomNavigationBar(
+              currentIndex: pageIndex,
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(Icons.list), label: "My trips"),
