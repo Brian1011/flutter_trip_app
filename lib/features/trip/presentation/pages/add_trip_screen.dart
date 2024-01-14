@@ -10,7 +10,7 @@ class AddTripScreen extends ConsumerWidget {
   final _locationController = TextEditingController(text: "Paris");
   final _pictureController = TextEditingController(
       text:
-          "https://unsplash.com/photos/a-person-swimming-in-the-ocean-with-a-camera-NhWxAIs61MM");
+          "https://images.unsplash.com/photo-1510074232337-05d50fa189ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   List<String> pictures = [];
 
   @override

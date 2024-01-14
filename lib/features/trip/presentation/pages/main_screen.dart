@@ -7,6 +7,8 @@ import 'package:travel_app_riverpod/features/trip/presentation/providers/trip_pr
 class MainScreen extends ConsumerWidget {
   final PageController _pageController = PageController();
   final ValueNotifier<int> _currentPage = ValueNotifier<int>(0);
+  String profilPic =
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D";
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,6 +34,20 @@ class MainScreen extends ConsumerWidget {
             )
           ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100.0),
+              child: Image.network(
+                profilPic,
+                fit: BoxFit.cover,
+                height: 60,
+                width: 60,
+              ),
+            ),
+          ),
+        ],
       ),
       body: PageView(
         controller: _pageController,
