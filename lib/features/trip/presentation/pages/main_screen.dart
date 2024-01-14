@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:travel_app_riverpod/features/trip/presentation/pages/add_trip_screen.dart';
+import 'package:travel_app_riverpod/features/trip/presentation/pages/my_trip_screen.dart';
+import 'package:travel_app_riverpod/features/trip/presentation/providers/trip_provider.dart';
 
 class MainScreen extends ConsumerWidget {
   final PageController _pageController = PageController();
@@ -7,6 +10,7 @@ class MainScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(tripListNotifierProvider.notifier).loadTrips();
     _pageController.addListener(() {
       _currentPage.value = _pageController.page!.round();
     });
@@ -32,8 +36,8 @@ class MainScreen extends ConsumerWidget {
       body: PageView(
         controller: _pageController,
         children: [
-          Text('1'),
-          Text('2'),
+          MyTripScreen(),
+          AddTripScreen(),
           Text('3'),
         ],
       ),
