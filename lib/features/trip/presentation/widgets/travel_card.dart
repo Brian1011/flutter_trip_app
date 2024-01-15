@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class TravelCard extends StatelessWidget {
@@ -56,8 +57,11 @@ class TravelCard extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20.0),
                       topRight: Radius.circular(20.0)),
-                  child: Image.network(
-                    imageUrl,
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    imageUrl: imageUrl,
                     fit: BoxFit.cover,
                     height: double.infinity,
                     width: double.infinity,
