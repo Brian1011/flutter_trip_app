@@ -17,25 +17,27 @@ class AddTripScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Form(
       key: formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            controller: _titleController,
-            decoration: const InputDecoration(label: Text('Title')),
-          ),
-          TextFormField(
-            controller: _descController,
-            decoration: const InputDecoration(label: Text('Description')),
-          ),
-          TextFormField(
-            controller: _locationController,
-            decoration: const InputDecoration(label: Text('Location')),
-          ),
-          TextFormField(
-            controller: _pictureController,
-            decoration: const InputDecoration(label: Text('Photo')),
-          ),
-          ElevatedButton(
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: _titleController,
+              decoration: const InputDecoration(label: Text('Title')),
+            ),
+            TextFormField(
+              controller: _descController,
+              decoration: const InputDecoration(label: Text('Description')),
+            ),
+            TextFormField(
+              controller: _locationController,
+              decoration: const InputDecoration(label: Text('Location')),
+            ),
+            TextFormField(
+              controller: _pictureController,
+              decoration: const InputDecoration(label: Text('Photo')),
+            ),
+            ElevatedButton(
               onPressed: () {
                 pictures.add(_pictureController.text);
                 if (formKey.currentState!.validate()) {
@@ -51,8 +53,10 @@ class AddTripScreen extends ConsumerWidget {
                   ref.watch(tripListNotifierProvider.notifier).loadTrips();
                 }
               },
-              child: Text("Add trip"))
-        ],
+              child: const Text("Add trip"),
+            )
+          ],
+        ),
       ),
     );
   }
