@@ -16,7 +16,7 @@ class MyTripScreen extends ConsumerWidget {
         children: [
           CustomSearchBar(),
           ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: tripsList.length,
             itemBuilder: (context, index) {
@@ -30,6 +30,12 @@ class MyTripScreen extends ConsumerWidget {
                 onDelete: () {
                   ref.read(tripListNotifierProvider.notifier).removeTrip(index);
                   ref.read(tripListNotifierProvider.notifier).loadTrips();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Trip deleted successfully'),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
                 },
               );
             },
