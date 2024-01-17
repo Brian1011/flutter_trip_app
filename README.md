@@ -5,7 +5,7 @@ It also allows you to view Trips.
 
 # App Demo
 ![Recorded demo](
-https://github.com/Brian1011/flutter_trip_app/images/video_gif.gif)
+https://github.com/Brian1011/flutter_trip_app/tree/master/images/video_gif.gif)
 
 # Folder Structure
 ```
