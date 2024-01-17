@@ -24,16 +24,17 @@ lib
 │   │   │   │───widgets
 │   │   │───trip.dart
 ```
-## core
+
+## 1. core
 This folder contains the core functionality of the app. It contains the error handling logic and the base classes for the app.
 
-## features
+## 2. features
 This folder contains the features of the app. It contains the trip feature which is the only feature in the app.
 
-### trip
+### 2.1 trip
 This folder contains the trip feature. It contains the data, domain and presentation layers of the feature.
 
-#### data
+#### 2.1.1 data
 This folder contains the data layer of the trip feature. It contains the data sources, models and repositories of the feature.
 
 ##### datasources
@@ -45,7 +46,7 @@ This folder contains the models of the trip feature. It contains the trip model 
 ##### repositories
 This folder contains the repositories of the trip feature. It contains the trip repository which is the repository for the trip entity.
 
-#### domain
+#### 2.1.2 domain
 This folder contains the domain layer of the trip feature. It contains the entities, repositories and usecases of the feature.
 
 ##### entities
@@ -57,7 +58,7 @@ This folder contains the repositories of the trip feature. It contains the trip 
 ##### usecases
 This folder contains the usecases of the trip feature. It contains the add trip, delete trip, edit trip and get trips usecases.
 
-#### presentation
+#### 2.1.3 presentation
 This folder contains the presentation layer of the trip feature. It contains the providers, pages and widgets of the feature.
 
 ##### providers
