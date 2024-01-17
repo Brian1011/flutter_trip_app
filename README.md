@@ -22,8 +22,8 @@ lib
 │   │   │   │───providers
 │   │   │   │───pages
 │   │   │   │───widgets
-│   │   
-
+│   │   │───trip.dart
+```
 ## core
 This folder contains the core functionality of the app. It contains the error handling logic and the base classes for the app.
 
