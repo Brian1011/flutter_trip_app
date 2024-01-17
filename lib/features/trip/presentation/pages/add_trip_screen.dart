@@ -52,6 +52,12 @@ class AddTripScreen extends ConsumerWidget {
             TextFormField(
               controller: _titleController,
               decoration: const InputDecoration(label: Text('Title')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a title';
+                }
+                return null;
+              },
             ),
             TextFormField(
               controller: _descController,
@@ -60,6 +66,12 @@ class AddTripScreen extends ConsumerWidget {
             TextFormField(
               controller: _locationController,
               decoration: const InputDecoration(label: Text('Location')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a location';
+                }
+                return null;
+              },
             ),
             TextFormField(
               controller: _pictureController,
