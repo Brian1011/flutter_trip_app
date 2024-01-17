@@ -4,7 +4,7 @@ The app allows you to add, edit and delete trips on Hive (a local storage databa
 It also allows you to view Trips.
 
 # App Demo
-![Recorded demo](https://github.com/Brian1011/flutter_trip_app/tree/master/images/video_gif.gif)
+![Recorded demo](https://github.com/Brian1011/flutter_trip_app/blob/master/images/video_gif.gif)
 
 # Folder Structure
 ```
