@@ -13,6 +13,34 @@ class AddTripScreen extends ConsumerWidget {
           "https://images.unsplash.com/photo-1510074232337-05d50fa189ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   List<String> pictures = [];
 
+  clearFields() {
+    _titleController.clear();
+    _descController.clear();
+    _locationController.clear();
+    _pictureController.clear();
+  }
+
+  submitForm(WidgetRef ref, context) {
+    pictures.add(_pictureController.text);
+    if (formKey.currentState!.validate()) {
+      final newTrip = Trip(
+          title: _titleController.text,
+          photos: pictures,
+          description: _descController.text,
+          date: DateTime.now(),
+          location: _locationController.text);
+      ref.read(tripListNotifierProvider.notifier).addNewTrip(newTrip);
+      ref.watch(tripListNotifierProvider.notifier).loadTrips();
+      clearFields();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Trip added successfully'),
+          duration: Duration(seconds: 1),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Form(
@@ -39,19 +67,7 @@ class AddTripScreen extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                pictures.add(_pictureController.text);
-                if (formKey.currentState!.validate()) {
-                  final newTrip = Trip(
-                      title: _titleController.text,
-                      photos: pictures,
-                      description: _descController.text,
-                      date: DateTime.now(),
-                      location: _locationController.text);
-                  ref
-                      .read(tripListNotifierProvider.notifier)
-                      .addNewTrip(newTrip);
-                  ref.watch(tripListNotifierProvider.notifier).loadTrips();
-                }
+                submitForm(ref, context);
               },
               child: const Text("Add trip"),
             )

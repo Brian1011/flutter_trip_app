@@ -3,6 +3,9 @@ A simple flutter mobile application that illustrates the use of clean architectu
 The app allows you to add, edit and delete trips on Hive (a local storage database).
 It also allows you to view Trips.
 
+# Screenshots
+
+
 # Folder Structure
 ```
 lib
